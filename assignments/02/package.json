@@ -1,0 +1,7 @@
+{
+  "name": "Assignment 02",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  }
+}
