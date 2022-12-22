@@ -1,0 +1,14 @@
+{
+	"name": "node-assignments",
+	"version": "1.0.0",
+	"scripts": {
+		"lint": "eslint assignments || true",
+		"lint:fix": "eslint assignments --fix || true"
+	},
+	"devDependencies": {
+		"eslint": "^8.23.1",
+		"eslint-config-airbnb-base": "^15.0.0",
+		"eslint-plugin-import": "^2.26.0"
+	}
+}
+
