@@ -6,7 +6,8 @@ const API = 'https://jsonplaceholder.typicode.com/posts';
 
 axios.get(API)
   .then(response => {
-    console.log(response.data.slice(0,5));
+    const res = response.data.slice(0,5);
+    console.log(JSON.stringify(res));
   })
   .catch(error => {
     console.log(error);
