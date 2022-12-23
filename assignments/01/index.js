@@ -2,8 +2,12 @@
 
 const os = require('os');
 
-console.log(os.platform());
+const system = os.platform();
+const nodeVersion = process.versions.node;
+const availMemory =os.freemem();
 
-console.log(process.versions.node);
+console.log(`Operating system: ${system}`);
+console.log(`Node Version: ${nodeVersion}`);
+console.log(`Available Memory: ${availMemory}`);
 
-console.log(os.freemem());
+
