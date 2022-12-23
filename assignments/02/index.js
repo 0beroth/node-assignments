@@ -5,14 +5,13 @@ const axios = require('axios');
 const API = 'https://jsonplaceholder.typicode.com/posts';
 
 axios.get(API)
-  .then(response => {
-    const res = response.data.slice(0,5);
-    console.log(JSON.stringify(res));
-  })
-  .catch(error => {
-    console.log(error);
-  });
-
+	.then((response) => {
+		const res = response.data.slice(0, 5);
+		console.log(JSON.stringify(res));
+	})
+	.catch((error) => {
+		console.log(error);
+	});
 
 // const https = require('https');
 
@@ -32,8 +31,6 @@ axios.get(API)
 // }).on('error', (e) => {
 //   console.error(e);
 // });
-
-
 
 // const request = require('request');
 
