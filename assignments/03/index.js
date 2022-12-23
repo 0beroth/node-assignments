@@ -37,8 +37,6 @@ axios.get(API)
 			break;
 		case resLength === 1: resultLength = 1;
 			break;
-		case resLength === undefined: console.log('no');
-			break;
 		default:
 		}
 
