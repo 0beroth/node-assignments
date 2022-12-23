@@ -1,3 +1,9 @@
 #!/usr/bin/env node
 
-console.log('hello world');
+const os = require('os');
+
+console.log(os.platform());
+
+console.log(process.versions.node);
+
+console.log(os.freemem());
