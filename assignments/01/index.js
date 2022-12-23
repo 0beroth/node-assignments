@@ -2,9 +2,18 @@
 
 const os = require('os');
 
-const system = os.platform();
+let system = os.platform();
 const nodeVersion = process.versions.node;
-const availMemory =os.freemem();
+const availMemory = os.freemem();
+
+switch(system) {
+    case "win32": system = "Windows"
+    break;
+    case "linux": system = "Linux"
+    break;
+    case "darwin": system = "macOs"
+    break; 
+};
 
 console.log(`Operating system: ${system}`);
 console.log(`Node Version: ${nodeVersion}`);
