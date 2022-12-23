@@ -7,7 +7,7 @@ const API = 'https://jsonplaceholder.typicode.com/posts';
 axios.get(API)
 	.then((response) => {
 		const res = response.data.slice(0, 5);
-		console.log(JSON.stringify(res));
+		console.log(JSON.stringify(res, null, 2));
 	})
 	.catch((error) => {
 		console.log(error);
@@ -39,3 +39,20 @@ axios.get(API)
 //   console.log(body);
 // //   console.log(body.explanation);
 // });
+
+// #!/usr/bin/env node
+// const _ = require('lodash');
+// const axios = require('axios');
+
+// This is an IIFE https://developer.mozilla.org/en-US/docs/Glossary/IIFE :
+
+// (async () => {
+//     try {
+//         const resp = await axios.get('https://jsonplaceholder.typicode.com/posts');
+//         const output = _.take(resp.data, 5);
+//         console.log(JSON.stringify(output, null, 2));
+//     } catch (err) {
+//         console.error(`Error: ${err.message}`);
+//         process.exit(1);
+//     }
+// })();
