@@ -4,7 +4,7 @@ make the following 5 requests in parallel, combine the responses into an array, 
 * https://jsonplaceholder.typicode.com/todos/2
 * https://jsonplaceholder.typicode.com/todos/3
 * https://jsonplaceholder.typicode.com/todos/4
-* https://jsonplaceholder.typicode.com/todos/4
+* https://jsonplaceholder.typicode.com/todos/5
 ```
 Example:
 $ node index.js
