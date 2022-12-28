@@ -13,9 +13,10 @@ Promise.all([axios.get(API_1),
 	axios.get(API_4),
 	axios.get(API_5),
 ])
-	.then(axios.spread((...responses) => {
-		for (let i = 0; i < responses.length; i += 1) {
-			const jsonData = JSON.stringify(responses[i].data, null, 2);
-			console.log(jsonData);
-		}
-	}));
+	.then((responses) => {
+		const resArray = [];
+		responses.forEach((response) => {
+			resArray.push(response.data);
+		});
+		console.log(JSON.stringify(resArray, null, 2));
+	});
