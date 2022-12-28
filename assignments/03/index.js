@@ -18,37 +18,26 @@ axios.get(API)
 	.then((response) => {
 
 		// In case user inputs argument that returns no results
-		if (!response.data.items) {
+		if (!response.data?.items) { // ? = safe lookup operator
 			console.log('Your search parameter returns 0 results');
 			return;
 		}
 
-		const result = [];
-		const resLength = response.data.items.length;
-		let resultLength = 5;
+		// const output = response.data.items.slice(0, 5).map(({title, link, snippet}) => ({title, link, snippet}));
+		const output = response.data.items.slice(0, 5).map((item) => ({
+			title: item.title,
+			link: item.link,
+			snippet: item.snippet
+		}));
 
-		// In case user inputs argument that results less than 5 desired results
-		switch (resLength) {
-		case resLength === 4: resultLength = 4;
-			break;
-		case resLength === 3: resultLength = 3;
-			break;
-		case resLength === 2: resultLength = 2;
-			break;
-		case resLength === 1: resultLength = 1;
-			break;
-		default:
-		}
-
-		for (let i = 0; i < resultLength; i += 1) {
-			const title = Object.fromEntries(Object.entries(response.data.items[i]).filter(([key]) => key.includes('title')));
-			const link = Object.fromEntries(Object.entries(response.data.items[i]).filter(([key]) => key.includes('link')));
-			const snippet = Object.fromEntries(Object.entries(response.data.items[i]).filter(([key]) => key.includes('snippet')));
-			const all = { ...title, ...link, ...snippet };
-			result.push(all);
-		}
-		console.log(JSON.stringify(result, null, 2));
+		// for (let i = 0; i < sliced.length; i += 1) {
+		// 	const {title, link, snippet} = sliced[i];
+		// 	result.push({title, link, snippet});
+		// }
+		console.log(JSON.stringify(output, null, 2));
 	})
 	.catch((error) => {
 		console.log(error);
 	});
+
+	
