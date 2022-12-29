@@ -1,20 +1,21 @@
 #!/usr/bin/env node
 const { spawn } = require('child_process');
 
-const argument = process.argv[2];
-const options = process.argv.slice(3);
-const command = spawn(argument, options);
+const cmd = process.argv.slice(2).join(' ');
+const command = spawn(cmd, { shell: true });
 
 command.stdout.on('data', (data) => {
-	const finalData = data.toString().trim();
-	console.log(finalData);
-	// console.log(`${data}`); // why `` work
+	process.stdout.write(data);
 });
 
-command.on('error', (error) => {
-	console.error(`stderr: ${error}`);
+command.stderr.on('data', (data) => {
+	process.stderr.write(data);
 });
 
-command.on('exit', () => {
-	console.log('\ncommand finished successfully');
+command.on('exit', (code) => {
+	if (code === 0) {
+		console.log('\ncommand finished successfully');
+	} else {
+		console.log('\ncommand finished unsuccessfully');
+	}
 });
