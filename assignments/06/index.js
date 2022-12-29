@@ -6,13 +6,15 @@ const options = process.argv.slice(3);
 const command = spawn(argument, options);
 
 command.stdout.on('data', (data) => {
-	console.log(`${data}`); // why `` work
+	const finalData = data.toString().trim();
+	console.log(finalData);
+	// console.log(`${data}`); // why `` work
 });
 
-command.on('error', () => {
-	console.log(`/bin/sh: line 1: ${argument}: command not found`);
+command.on('error', (error) => {
+	console.error(`stderr: ${error}`);
 });
 
 command.on('exit', () => {
-	console.log('command finished successfully');
+	console.log('\ncommand finished successfully');
 });
