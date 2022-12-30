@@ -6,7 +6,7 @@ Make the following 50 requests, 5 requests at a time (in parallel):
 * ...
 * https://jsonplaceholder.typicode.com/todos/50
 
-Log "fetching todo `<id>-<id>`... " before each batch and " - fetched `<id>`" after each request completes.
+Log "fetching todos `<id>-<id>`... " before each batch and " - fetched `<id>`" after each request completes.
 Example:
 ```
 $ node index.js
