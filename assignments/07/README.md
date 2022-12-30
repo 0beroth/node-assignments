@@ -6,7 +6,7 @@ Make the following 20 requests serially:
 * ...
 * https://jsonplaceholder.typicode.com/todos/20
 
-Log "fetching todo <id>... " before each request and "done." after the request.
+Log "fetching todo `<id>`... " before each request and "done." after the request.
 Example:
 ```
 $ node index.js
