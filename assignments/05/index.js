@@ -20,3 +20,18 @@ Promise.all([axios.get(API_1),
 		});
 		console.log(JSON.stringify(resArray, null, 2));
 	});
+
+// const _ = require('lodash');
+// const axios = require('axios');
+
+// const getTodo = async (id) => _.get(await axios.get(`https://jsonplaceholder.typicode.com/todos/${id}`), 'data');
+
+// (async () => {
+//     try {
+//         const output = await Promise.all(_.map(_.range(1, 6), getTodo));
+//         console.log(JSON.stringify(output, null, 2));
+//     } catch (err) {
+//         console.error(`Error: ${err.message}`);
+//         process.exit(1);
+//     }
+// })();

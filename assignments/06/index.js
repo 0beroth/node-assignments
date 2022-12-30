@@ -1,18 +1,19 @@
-#!/usr/bin/env node
+#!/usr/bin/env node  
+// ^ allows to run script as ./index.js
 const { spawn } = require('child_process');
 
 const cmd = process.argv.slice(2).join(' ');
-const command = spawn(cmd, { shell: true });
+const child = spawn(cmd, { shell: true, stdio: 'inherit' }); //https://nodejs.org/api/child_process.html#optionsstdio stdio: 'inherit' takes care of child.stdout.on/child.stderr.on
 
-command.stdout.on('data', (data) => {
-	process.stdout.write(data);
-});
+// child.stdout.on('data', (data) => {
+// 	process.stdout.write(data);
+// });
 
-command.stderr.on('data', (data) => {
-	process.stderr.write(data);
-});
+// child.stderr.on('data', (data) => {
+// 	process.stderr.write(data);
+// });
 
-command.on('exit', (code) => {
+child.on('exit', (code) => {
 	if (code === 0) {
 		console.log('\ncommand finished successfully');
 	} else {
