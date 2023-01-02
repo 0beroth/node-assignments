@@ -1,7 +1,11 @@
 {
   "name": "Assignment 09",
   "main": "index.js",
+  "type": "module",
   "scripts": {
-    "start": "node index.js"
+    "start": "node index.js"   
+  },
+  "dependencies": {
+    "got": "^12.5.3"
   }
 }
